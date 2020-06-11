@@ -4,20 +4,95 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Tutorial Request</title>
+    <!-- Material Icons -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" />
+    <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.9.0/css/bulma-rtl.css"> -->
+    <link rel="stylesheet" href="./css/styles.css">
   </head>
     <body>
-      <h1>Tutorial request</h1>
+      <!-- Auth Modal-->
+      <div class="auth open">
+        <div class="modal active">
+          <h2>ログイン</h2>
+          <form class="login">
+            <input type="text" name="email" placeholder="Email">
+            <input type="password" name="password" placeholder="passwordを入力">
+            <button>Login</button>
+            <p class="error"></p>
+          </form>
+          <div>No account ?
+            <a class="switch">
+            Refister instead
+            </a>
+          </div>
+        </div>
+        <div class="modal">
+          <h2>登録</h2>
+          <form action="" class="register">
+            <input type="text" name="email" placeholder="email">
+            <input type="password" name="password" placeholder="passwordを入力">
+            <button>登録</button>
+            <p class="error"></p>
+          </form>
+          <div>Got an account ?
+            <a class="switch">login instead</a>
+          </div>
+        </div>
+      </div>
+      <!-- Auth Modal-->
+      <!-- Request Modal -->
+      <div class="new-request">
+        <div class="modal">
+          <h2>Request a Tutorial</h2>
+          <form>
+            <input type="text" name="request" placeholder="Request...">
+            <button>Submit Request</button>
+            <p class="error"></p>
+          </form>
+        </div>
+      </div>
+      <!-- Request Modal -->
+      
+      
+      <header>
+        <nav>
+          <a class="add-request">add request</a>
+          <a class="sign-out">sign out</a>
+        </nav>
+      </header>
+  
+      <section class="content">
+        <h1>Tutorial Requests</h1>
+        <ul class="request-list"> 
+          <li>
+            <span class="text">Laravel 6 tutorial</span>
+            <div>
+              <span class="votes">125</span>
+              <i class="material-icons upvote">arrow_upward</i>
+            </div>
+          </li>
+        </ul>
+        <button class="call">Say Hello</button>
+      </section>
+      
+      
+      
+
+
       <!-- The core Firebase JS SDK is always required and must be listed first -->
       <script src="/__/firebase/7.15.0/firebase-app.js"></script>
 
       <!-- The core Firebase JS SDK is always required and must be isted first -->
-      <script src="/__/firebase/8.4.2/firebase-app.js"></script>
+      
       <!-- include only the firebase features as you need -->
-      <script src="/__/firebase/8.4.2/firebase-auth.js"></script>
-      <script src="/__/firebase/8.4.2/firebase-firestore.js"></script>
-      <script src="/__/firebase/8.4.2/firebase-functions.js"></script>
+      <script defer src="/__/firebase/7.15.0/firebase-auth.js"></script>
+      <script src="/__/firebase/7.15.0/firebase-firestore.js"></script>
+      
+      <script src="/__/firebase/7.15.0/firebase-functions.js"></script>
       
       <!-- Initialize Firebase -->
       <script src="/__/firebase/init.js"></script>
+      <script src="js/app.js"></script>
+      <script defer src="js/auth.js"></script>
     </body>
 </html>
