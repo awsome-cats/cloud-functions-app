@@ -1,5 +1,7 @@
+
 const requestModal = document.querySelector('.new-request');
 const requestLink = document.querySelector('.add-request');
+const requestForm = document.querySelector('.new-request form');
 
 // open request modal
 requestLink.addEventListener('click', () => {
@@ -13,15 +15,20 @@ requestModal.addEventListener('click', (e) => {
   }
 });
 
-// fuctions/index.jsのsayHello functionを呼び出して、イベントにする
-const button = document.querySelector('.call');
-button.addEventListener('click', () => {
-  // get function reference
+// add new request
 
-  const sayHello = firebase.functions().httpsCallable('sayHello')
-  sayHello({ name: 'Miyuki'}).then(result => {
-    console.log(result.data)
+requestForm.addEventListener('submit', (e) => {
+  e.preventDefault()
+  const addRequest = firebase.functions().httpsCallable('addRequest')
+  addRequest({ 
+    text: requestForm.request.value
+  })
+  .then(() => {
+    requestForm.reset()
+    requestModal.classList.remove('open')
+    requestForm.querySelector('.error').textContent = ''
+  })
+  .catch(error => {
+    requestForm.querySelector('.error').textContent = error.message;
   })
 })
-
-// functionsのsayHello(data, context)  <------ アクセス
