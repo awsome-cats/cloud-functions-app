@@ -7,9 +7,32 @@
     <!-- Material Icons -->
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" />
     <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.9.0/css/bulma-rtl.css"> -->
-    <link rel="stylesheet" href="./css/styles.css">
+    <link rel="stylesheet" href="css/styles.css">
+    <style>
+      .notification {
+        width: 200px;
+        padding: 20px;
+        position:fixed;
+        left: 50%;
+        margin-left: -110px;
+        top: 0;
+        border-radius: 0 0 5px 5px;
+        background: red;
+        text-align: center;
+        color: #fff;
+        margin-top: -100%;
+        transition: all 0.4s;
+        height: 80px;
+
+      }
+      .notification.active {
+        margin-top:30px;
+      }
+
+    </style>
   </head>
     <body>
+      <div class="notification"></div>
       <!-- Auth Modal-->
       <div class="auth open">
         <div class="modal active">
@@ -69,7 +92,7 @@
           <li v-for="request in requests" :key="request.id">
             <span class="text">{{request.text}}</span>
             <div>
-              <span class="votes">{{ request.upvotes}}</span>
+              <span class="votes">{{ request.upvotes }}</span>
               <i 
               class="material-icons upvote"
               @click="upvotedRequest(request.id)"
@@ -79,7 +102,7 @@
         </ul>
        
       </section>
-
+      
       
       
       
@@ -99,7 +122,7 @@
       
       <!-- Initialize Firebase -->
       <script src="/__/firebase/init.js"></script>
-      <script src="js/app.js"></script>
+      <script defer src="js/app.js"></script>
       <script defer src="js/auth.js"></script>
       <script defer src="js/request.js"></script>
     </body>

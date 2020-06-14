@@ -35,3 +35,14 @@ requestForm.addEventListener('submit', (e) => {
     requestForm.querySelector('.error').textContent = error.message;
   })
 })
+
+const notification = document.querySelector('.notification')
+const showNotification = (message) => {
+  notification.textContent = message;
+  notification.classList.add('active')
+  setTimeout(() => {
+    notification.classList.remove('active');
+    notification.textContent = ''
+
+  })
+}
