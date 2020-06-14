@@ -65,7 +65,7 @@ exports.upvote = functions.https.onCall((data, context) => {
       )
     }
     // userのupdateとrequestのupdate
-    //data.idを含めたい
+    //data.idを含めたい -vue.js側でidを取得したい
     // eslint-disable-next-line promise/no-nesting
     return user.update({upvotedOn: [...doc.data().upvotedOn, data.id]})
     .then(() => {
