@@ -35,7 +35,7 @@ exports.addRequest = functions.https.onCall((data, context) => {
     throw new functions.https.HttpsError('unauthenticated',
     '認証されたアカウントのみの機能です')
   }
-  if (data.text.length > 30) {
+  if (data.text.length > 10) {
     throw new functions.https.HttpsError('invalid-argument',
     'リクエストは10文字までにしてください')
   }
@@ -44,9 +44,3 @@ exports.addRequest = functions.https.onCall((data, context) => {
     upvotes:0,
   })
 })
-// errorだった
-// exports.getUsers = functions.https.onRequest((req, res) => {
-//   const doc = admin.firestore().collection('users').get()
-//   console.log(doc)
-//   return doc
-// })

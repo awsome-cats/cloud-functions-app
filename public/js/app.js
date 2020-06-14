@@ -16,6 +16,9 @@ requestModal.addEventListener('click', (e) => {
 });
 
 // add new request
+// functionsのaddRequestはerrorハンドリング検証ののちに
+// requestコレクションを作成し、データを格納するイベント
+// addRequestはエラーを返しているのでcatchを設定しよう
 
 requestForm.addEventListener('submit', (e) => {
   e.preventDefault()

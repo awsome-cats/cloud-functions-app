@@ -15,7 +15,7 @@ authSwitchLinks.forEach((link) => {
   });
 });
 
-// registerForm
+// registerForm: formタグのclass
 
 
 registerForm.addEventListener('submit', (e) => {
@@ -36,7 +36,7 @@ registerForm.addEventListener('submit', (e) => {
 })
 
 
-// LoginForm
+// LoginForm: formタグのclass
 
 loginForm.addEventListener('submit', (e) => {
   e.preventDefault();
