@@ -73,3 +73,25 @@ exports.upvote = functions.https.onCall((data, context) => {
     });
   })
 })
+
+//firestore trigger for tracking activity
+// any collection
+// example (/{abc}/{id}) ==> context.params.abc
+// 新たにrequestが作られたらactivitiesコレクションが作成される
+exports.logActivities = functions.firestore.document('/{collection}/{id}')
+.onCreate((snap, context) => {
+  console.log(snap.data())
+  const collection = context.params.collection;
+  const id = context.params.id
+
+  const activities = admin.firestore().collection('activities')
+
+  if (collection === 'requests') {
+    return activities.add({ text: '新たにtutorial requestが加えられました'})
+  } 
+
+  if (collection === 'users') {
+    return activities.add({ text: '新しいユーザーが登録されました'})
+  }
+  return null
+})
